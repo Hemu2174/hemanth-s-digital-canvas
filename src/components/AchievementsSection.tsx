@@ -23,8 +23,8 @@ const AchievementsSection = () => (
   <section id="achievements" className="relative">
     <div className="section-container">
       <AnimatedSection>
-        <p className="mono-text text-primary text-sm mb-2 tracking-widest uppercase">Recognition</p>
-        <h2 className="section-title">Achievements & Certifications</h2>
+        <p className="mono-text text-sm mb-2 tracking-widest uppercase" style={{ color: "hsl(165 80% 48%)" }}>Recognition</p>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "hsl(165 80% 48%)" }}>Achievements & Certifications</h2>
       </AnimatedSection>
 
       {/* Achievements */}

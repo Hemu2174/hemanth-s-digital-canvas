@@ -1,9 +1,10 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AnimatedSection from "./AnimatedSection";
-import { ExternalLink, Github, Folder, ArrowRight } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Folder } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { projects } from "@/data/projects";
+import AnimatedSection from "@/components/AnimatedSection";
+import Navbar from "@/components/Navbar";
 
 const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: number }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -136,7 +137,7 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
           className="absolute inset-0 pointer-events-none rounded-2xl"
           animate={{
             background: isHovered
-              ? "linear-gradient(180deg, transparent 40%, rgba(255,122,77,0.06) 100%)"
+              ? "linear-gradient(180deg, transparent 40%, hsla(165 80% 48% / 0.06) 100%)"
               : "transparent",
           }}
           transition={{ duration: 0.4 }}
@@ -146,53 +147,46 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
   );
 };
 
-const ProjectsSection = () => {
+const Projects = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="projects" className="relative py-20">
-      <div className="section-container">
-        <AnimatedSection>
-          <p className="mono-text text-sm mb-2 tracking-widest uppercase text-center" style={{ color: "hsl(165 80% 48%)" }}>
-            Portfolio
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center" style={{ color: "hsl(165 80% 48%)" }}>
-            Featured Projects
-          </h2>
-          <p className="text-muted-foreground text-center max-w-lg mx-auto mt-3 text-sm">
-            A selection of projects I've built — hover to explore details.
-          </p>
-        </AnimatedSection>
+    <div className="min-h-screen bg-background">
+      <Navbar />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-14">
+      {/* Header with cyan background */}
+      <div className="relative mt-16" style={{ background: "linear-gradient(135deg, hsl(165 80% 48% / 0.2) 0%, hsl(165 80% 48% / 0.05) 100%)" }}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16">
+          <motion.button
+            onClick={() => navigate("/")}
+            className="flex items-center gap-2 mb-8 px-4 py-2 rounded-lg transition-all hover:bg-foreground/10"
+            whileHover={{ x: -4 }}
+          >
+            <ArrowLeft size={20} style={{ color: "hsl(165 80% 48%)" }} />
+            <span className="text-foreground">Back to Portfolio</span>
+          </motion.button>
+
+          <AnimatedSection>
+            <h1 className="text-5xl md:text-6xl font-bold mb-4" style={{ color: "hsl(165 80% 48%)" }}>
+              All Projects
+            </h1>
+            <p className="text-muted-foreground text-lg max-w-xl">
+              A complete collection of projects I've built — explore details, view source code, and visit live demos.
+            </p>
+          </AnimatedSection>
+        </div>
+      </div>
+
+      {/* Projects Grid */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, i) => (
             <ProjectCard key={project.title} project={project} index={i} />
           ))}
         </div>
-
-        {/* View All Button */}
-        <AnimatedSection delay={0.3}>
-          <div className="flex justify-center mt-16">
-            <motion.button
-              onClick={() => navigate("/projects")}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              className="flex items-center gap-2 px-8 py-3 rounded-lg font-semibold transition-all"
-              style={{
-                color: "hsl(220 20% 92%)",
-                background: "linear-gradient(135deg, hsl(165 80% 48%), hsl(165 80% 55%))",
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.boxShadow = "0 0 30px hsla(165 80% 48% / 0.4)"}
-              onMouseLeave={(e) => e.currentTarget.style.boxShadow = "none"}
-            >
-              View All Projects
-              <ArrowRight size={18} />
-            </motion.button>
-          </div>
-        </AnimatedSection>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default ProjectsSection;
+export default Projects;
