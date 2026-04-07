@@ -6,51 +6,64 @@
 
 @layer base {
   :root {
+    /* Dark background gradient */
     --background: 220 20% 6%;
-    --foreground: 220 20% 92%;
+    --foreground: 0 0% 100%;
 
+    /* Card styling */
     --card: 220 18% 10%;
-    --card-foreground: 220 20% 92%;
+    --card-foreground: 0 0% 100%;
 
+    /* Popover */
     --popover: 220 18% 10%;
-    --popover-foreground: 220 20% 92%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 165 80% 48%;
-    --primary-foreground: 220 20% 6%;
+    /* Purple primary theme */
+    --primary: 259 84% 58%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 18% 14%;
-    --secondary-foreground: 220 20% 85%;
+    /* Cyan secondary */
+    --secondary: 186 100% 50%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 15% 16%;
-    --muted-foreground: 220 10% 55%;
+    /* Muted and text colors */
+    --muted: 217 17% 28%;
+    --muted-foreground: 217 14% 66%;
 
-    --accent: 260 70% 60%;
-    --accent-foreground: 220 20% 95%;
+    /* Accent - cyan */
+    --accent: 186 100% 50%;
+    --accent-foreground: 220 20% 6%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 15% 18%;
-    --input: 220 15% 18%;
-    --ring: 165 80% 48%;
+    --border: 217 17% 20%;
+    --input: 217 17% 20%;
+    --ring: 259 84% 58%;
 
     --radius: 0.75rem;
 
-    --gradient-primary: linear-gradient(135deg, hsl(165 80% 48%), hsl(200 80% 55%));
-    --gradient-accent: linear-gradient(135deg, hsl(260 70% 60%), hsl(300 70% 55%));
-    --gradient-hero: linear-gradient(135deg, hsl(165 80% 48% / 0.15), hsl(260 70% 60% / 0.1));
-    --glass-bg: hsl(220 18% 10% / 0.6);
-    --glass-border: hsl(220 15% 25% / 0.3);
-    --shadow-glow: 0 0 30px hsl(165 80% 48% / 0.15);
+    /* Purple to Cyan gradient */
+    --gradient-primary: linear-gradient(135deg, #8b5cf6, #00c3ff);
+    --gradient-accent: linear-gradient(135deg, #7c3aed, #38bdf8);
+    --gradient-hero: linear-gradient(135deg, #8b5cf6 / 15%, #00c3ff / 10%);
+    
+    /* Glass morphism with purple tint */
+    --glass-bg: rgba(11, 15, 20, 0.6);
+    --glass-border: rgba(139, 92, 246, 0.2);
+    
+    /* Purple glow shadow */
+    --shadow-glow: 0 0 40px rgba(139, 92, 246, 0.5);
 
+    /* Sidebar */
     --sidebar-background: 220 18% 8%;
-    --sidebar-foreground: 220 20% 92%;
-    --sidebar-primary: 165 80% 48%;
-    --sidebar-primary-foreground: 220 20% 6%;
-    --sidebar-accent: 220 18% 14%;
-    --sidebar-accent-foreground: 220 20% 92%;
-    --sidebar-border: 220 15% 18%;
-    --sidebar-ring: 165 80% 48%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 259 84% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 186 100% 50%;
+    --sidebar-accent-foreground: 220 20% 6%;
+    --sidebar-border: 217 17% 20%;
+    --sidebar-ring: 259 84% 58%;
   }
 }
 
@@ -61,6 +74,7 @@
   body {
     @apply bg-background text-foreground font-sans;
     font-family: 'Space Grotesk', sans-serif;
+    background: linear-gradient(180deg, #020617, #0b0f14);
   }
   html {
     scroll-behavior: smooth;
@@ -69,21 +83,21 @@
 
 @layer components {
   .glass-card {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 
   .gradient-text {
-    background: var(--gradient-primary);
+    background: linear-gradient(90deg, #8b5cf6, #00c3ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .gradient-accent-text {
-    background: var(--gradient-accent);
+    background: linear-gradient(90deg, #7c3aed, #38bdf8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -115,5 +129,112 @@
 
   .mono-text {
     font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Enhanced button styles */
+  .btn-primary {
+    @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300;
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: white;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+  }
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 rounded-lg font-semibold border-2 transition-all duration-300;
+    border-color: #8b5cf6;
+    color: #8b5cf6;
+  }
+  .btn-outline:hover {
+    background: rgba(139, 92, 246, 0.1);
+    transform: translateY(-2px);
+  }
+
+  /* Smooth fade-in on scroll */
+  .fade-in {
+    @apply opacity-0;
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  /* Glow effect utility */
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+  .glow-effect:hover {
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.3);
+  }
+
+  /* Form input styling */
+  input::placeholder,
+  textarea::placeholder {
+    color: #9ca3af;
+    opacity: 1;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Improved card styles */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  /* Text utilities for better typography */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-cyan-500;
+  }
+
+  /* Animation utilities */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.3s ease-out;
+  }
+
+  /* Floating animation for profile image */
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .show-mobile {
+    display: none;
   }
 }

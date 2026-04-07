@@ -23,8 +23,8 @@ const AchievementsSection = () => (
   <section id="achievements" className="relative">
     <div className="section-container">
       <AnimatedSection>
-        <p className="mono-text text-sm mb-2 tracking-widest uppercase" style={{ color: "hsl(165 80% 48%)" }}>Recognition</p>
-        <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "hsl(165 80% 48%)" }}>Achievements & Certifications</h2>
+        <p className="mono-text text-sm mb-2 tracking-widest uppercase" style={{ color: "#8b5cf6" }}>Recognition</p>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "#8b5cf6" }}>Achievements & Certifications</h2>
       </AnimatedSection>
 
       {/* Achievements */}
@@ -54,7 +54,7 @@ const AchievementsSection = () => (
             {certifications.map((c) => (
               <span
                 key={c}
-                className="px-4 py-2 rounded-lg glass-card text-sm text-secondary-foreground hover:border-primary/30 transition-colors"
+                className="px-4 py-2 rounded-lg glass-card text-sm text-muted-foreground hover:text-primary hover:border-primary/30 transition-colors"
               >
                 {c}
               </span>

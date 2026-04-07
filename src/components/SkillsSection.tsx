@@ -27,8 +27,8 @@ const SkillsSection = () => (
   <section id="skills" className="relative">
     <div className="section-container">
       <AnimatedSection>
-        <p className="mono-text text-sm mb-2 tracking-widest uppercase" style={{ color: "hsl(165 80% 48%)" }}>Expertise</p>
-        <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "hsl(165 80% 48%)" }}>Skills & Technologies</h2>
+        <p className="mono-text text-sm mb-2 tracking-widest uppercase" style={{ color: "#8b5cf6" }}>Expertise</p>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "#8b5cf6" }}>Skills & Technologies</h2>
       </AnimatedSection>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">

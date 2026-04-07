@@ -36,12 +36,12 @@ const ScrollToTop = () => {
           onClick={scrollToTop}
           className="fixed bottom-8 right-8 z-40 p-3 rounded-full shadow-lg"
           style={{
-            background: "linear-gradient(135deg, hsl(165 80% 48%), hsl(165 80% 55%))",
-            border: "2px solid hsl(165 80% 48%)",
+            background: "linear-gradient(135deg, #8b5cf6, #7c3aed)",
+            border: "2px solid #8b5cf6",
           }}
           whileHover={{
             scale: 1.1,
-            boxShadow: "0 0 30px hsla(165 80% 48% / 0.5)",
+            boxShadow: "0 0 30px rgba(139, 92, 246, 0.5)",
           }}
           whileTap={{ scale: 0.95 }}
           aria-label="Scroll to top"
